@@ -1,0 +1,40 @@
+<div class="max-w-5xl mx-auto mt-10 px-6">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold">Supply Requests</h1>
+    <%= link_to "New Supply Request",
+                new_supply_request_path,
+                class: "px-4 py-2 bg-black text-white rounded-lg" %>
+  </div>
+  <% if @supply_requests.any? %>
+    <div class="overflow-x-auto border rounded-lg">
+      <table class="w-full text-left">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-4 py-3">Item</th>
+            <th class="px-4 py-3">Quantity</th>
+            <th class="px-4 py-3">Status</th>
+            <th class="px-4 py-3">Requested By</th>
+            <th class="px-4 py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @supply_requests.each do |request| %>
+            <tr class="border-t">
+              <td class="px-4 py-3"><%= request.item_name %></td>
+              <td class="px-4 py-3"><%= request.quantity %></td>
+              <td class="px-4 py-3"><%= status_badge(request.status) %></td>
+              <td class="px-4 py-3"><%= request.user.name %></td>
+              <td class="px-4 py-3">
+                <%= link_to "View",
+                            supply_request_path(request),
+                            class: "underline" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p class="text-gray-500">No supply requests yet.</p>
+  <% end %>
+</div>

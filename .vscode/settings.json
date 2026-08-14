@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "files.associations": {
+    "*.rake": "ruby",
+    "Rakefile": "ruby",
+    "*.erb": "erb"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "misogi.ruby-rubocop"
+  },
+  "ruby.useLanguageServer": true,
+  "solargraph.diagnostics": true,
+  "rubocop.useBundler": true
+}
